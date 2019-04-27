@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		74C040962270960F0051E8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040952270960F0051E8B2 /* AppDelegate.swift */; };
-		74C040982270960F0051E8B2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040972270960F0051E8B2 /* FirstViewController.swift */; };
-		74C0409A2270960F0051E8B2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040992270960F0051E8B2 /* SecondViewController.swift */; };
 		74C0409D2270960F0051E8B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0409B2270960F0051E8B2 /* Main.storyboard */; };
 		74C0409F227096100051E8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C0409E227096100051E8B2 /* Assets.xcassets */; };
 		74C040A2227096100051E8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C040A0227096100051E8B2 /* LaunchScreen.storyboard */; };
+		74C040AA22709CF00051E8B2 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040A922709CF00051E8B2 /* MemoViewController.swift */; };
+		74C040AC22709D000051E8B2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040AB22709D000051E8B2 /* SettingsViewController.swift */; };
+		74C040AE2272ABC60051E8B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040AD2272ABC60051E8B2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74C040922270960F0051E8B2 /* MyMemoApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMemoApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C040952270960F0051E8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74C040972270960F0051E8B2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		74C040992270960F0051E8B2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		74C0409C2270960F0051E8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74C0409E227096100051E8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C040A1227096100051E8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C040A3227096100051E8B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74C040A922709CF00051E8B2 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		74C040AB22709D000051E8B2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		74C040AD2272ABC60051E8B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				74C040952270960F0051E8B2 /* AppDelegate.swift */,
-				74C040972270960F0051E8B2 /* FirstViewController.swift */,
-				74C040992270960F0051E8B2 /* SecondViewController.swift */,
 				74C0409B2270960F0051E8B2 /* Main.storyboard */,
 				74C0409E227096100051E8B2 /* Assets.xcassets */,
 				74C040A0227096100051E8B2 /* LaunchScreen.storyboard */,
 				74C040A3227096100051E8B2 /* Info.plist */,
+				74C040A922709CF00051E8B2 /* MemoViewController.swift */,
+				74C040AB22709D000051E8B2 /* SettingsViewController.swift */,
+				74C040AD2272ABC60051E8B2 /* Constants.swift */,
 			);
 			path = "MyMemoApp-iOS";
 			sourceTree = "<group>";
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74C0409A2270960F0051E8B2 /* SecondViewController.swift in Sources */,
+				74C040AA22709CF00051E8B2 /* MemoViewController.swift in Sources */,
 				74C040962270960F0051E8B2 /* AppDelegate.swift in Sources */,
-				74C040982270960F0051E8B2 /* FirstViewController.swift in Sources */,
+				74C040AC22709D000051E8B2 /* SettingsViewController.swift in Sources */,
+				74C040AE2272ABC60051E8B2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
