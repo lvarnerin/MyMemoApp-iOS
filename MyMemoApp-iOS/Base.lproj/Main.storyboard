@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="111" width="414" height="702"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MAq-7b-fiE">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="450"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="495"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vfg-iy-q9g">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
@@ -103,6 +103,30 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="AFc-lY-IQD">
+                                                <rect key="frame" x="0.0" y="465" width="394" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Yg-2WQ">
+                                                        <rect key="frame" x="0.0" y="5" width="106" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/1970" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbb-1F-jkb">
+                                                        <rect key="frame" x="166" y="5" width="83.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL8-yQ-3Pf">
+                                                        <rect key="frame" x="309.5" y="0.0" width="84.5" height="30"/>
+                                                        <state key="normal" title="Change"/>
+                                                        <connections>
+                                                            <segue destination="KSw-T5-0iY" kind="show" identifier="segueMemoDate" id="oHI-j5-44r"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -128,7 +152,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Memo" id="xJt-Wi-4Zm"/>
                     <connections>
+                        <outlet property="btnChange" destination="eL8-yQ-3Pf" id="Sfj-AK-nWR"/>
                         <outlet property="changeEditMode" destination="zN0-tm-Dv5" id="CnJ-pA-WaI"/>
+                        <outlet property="lblDate" destination="rbb-1F-jkb" id="CQo-Fc-Y9A"/>
                         <outlet property="scrollView" destination="8uZ-o5-ZDH" id="YOA-Pj-t7t"/>
                         <outlet property="sgmtEditMode" destination="zN0-tm-Dv5" id="Zvz-KC-Gkb"/>
                         <outlet property="swHighPriority" destination="Tkr-vt-DgW" id="qzF-Gp-kCs"/>
@@ -140,6 +166,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-450"/>
+        </scene>
+        <!--Date-->
+        <scene sceneID="cSi-o6-DSy">
+            <objects>
+                <viewController title="Date" id="KSw-T5-0iY" customClass="DateViewController" customModule="MyMemoApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zia-pK-PQ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="1kn-gE-qyk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Plu-YF-OVg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8CV-0L-qIA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="578076177.78761995">
+                                    <!--2019-04-27 16:42:57 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8CV-0L-qIA" firstAttribute="leading" secondItem="Plu-YF-OVg" secondAttribute="leading" id="7fV-ud-cyn"/>
+                            <constraint firstItem="8CV-0L-qIA" firstAttribute="top" secondItem="Zia-pK-PQ6" secondAttribute="bottom" id="tYf-XW-J1a"/>
+                            <constraint firstAttribute="trailing" secondItem="8CV-0L-qIA" secondAttribute="trailing" id="yw1-Xa-3Ke"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dtpDate" destination="8CV-0L-qIA" id="gIi-8D-bPd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWC-Cd-1r1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2648" y="-450"/>
         </scene>
         <!--Settings-->
         <scene sceneID="DQv-lO-Ppi">
@@ -196,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="043-YI-HYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434.7826086956525" y="0.0"/>
+            <point key="canvasLocation" x="2370" y="224"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MemoViewController: UIViewController, UITextFieldDelegate {
+class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
 
     var currentMemo: Memo?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -21,6 +21,8 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var swHighPriority: UISwitch!
     @IBOutlet weak var swMediumPriority: UISwitch!
     @IBOutlet weak var swLowPriority: UISwitch!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var btnChange: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    @objc func saveContact() {
+    @objc func saveMemo() {
         if currentMemo == nil {
             let context = appDelegate.persistentContainer.viewContext
             currentMemo = txtMemo(context: context)
@@ -59,12 +61,27 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
                 textField.isEnabled = false
                 textField.borderStyle = UITextField.BorderStyle.none
             }
+            btnChange.isHidden = true
+            navigationItem.rightBarButtonItem = nil
         }
         else if sgmtEditMode.selectedSegmentIndex == 1{
             for textField in textFields {
                 textField.isEnabled = true
                 textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
+            btnChange.isHidden = false
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                                target: self,
+                                                                action: #selector(self.saveMemo))
+        }
+    }
+    func dateChanged(date: Date) {
+        if currentMemo != nil {
+            currentMemo?.memoDate = date as Date?
+            appDelegate.saveContext()
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            lblDate.text = formatter.string(from: date)
         }
     }
     
@@ -106,6 +123,12 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         
         self.scrollView.contentInset = contentInset
         self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueMemoDate") {
+            let dateController = segue.destination as! DateViewController
+            dateController.delegate = self
+        }
     }
     
 
