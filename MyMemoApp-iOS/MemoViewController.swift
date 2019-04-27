@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-class MemoViewController: UIViewController {
+class MemoViewController: UIViewController, UITextFieldDelegate {
 
+    var currentMemo: Memo?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var changeEditMode: UISegmentedControl!
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
@@ -22,7 +26,28 @@ class MemoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        changeEditMode(self)
+        let textField: [UITextField] = [txtMemo]
+        
+        for textfield in textField {
+            textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+        }
     }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        currentMemo?.memoText = txtMemo.text
+        return true
+    }
+    
+    @objc func saveContact() {
+        if currentMemo == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            currentMemo = txtMemo(context: context)
+        }
+        appDelegate.saveContext()
+        sgmtEditMode.selectedSegmentIndex = 0
+        changeEditMode(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

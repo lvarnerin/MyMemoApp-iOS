@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7439D5B02274823700B8741C /* MyMemoApp-iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7439D5AE2274823700B8741C /* MyMemoApp-iOS.xcdatamodeld */; };
 		74C040962270960F0051E8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C040952270960F0051E8B2 /* AppDelegate.swift */; };
 		74C0409D2270960F0051E8B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0409B2270960F0051E8B2 /* Main.storyboard */; };
 		74C0409F227096100051E8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C0409E227096100051E8B2 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7439D5AF2274823700B8741C /* MyMemoApp-iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyMemoApp-iOS.xcdatamodel"; sourceTree = "<group>"; };
 		74C040922270960F0051E8B2 /* MyMemoApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMemoApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C040952270960F0051E8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74C0409C2270960F0051E8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				74C040A922709CF00051E8B2 /* MemoViewController.swift */,
 				74C040AB22709D000051E8B2 /* SettingsViewController.swift */,
 				74C040AD2272ABC60051E8B2 /* Constants.swift */,
+				7439D5AE2274823700B8741C /* MyMemoApp-iOS.xcdatamodeld */,
 			);
 			path = "MyMemoApp-iOS";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				74C040962270960F0051E8B2 /* AppDelegate.swift in Sources */,
 				74C040AC22709D000051E8B2 /* SettingsViewController.swift in Sources */,
 				74C040AE2272ABC60051E8B2 /* Constants.swift in Sources */,
+				7439D5B02274823700B8741C /* MyMemoApp-iOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7439D5AE2274823700B8741C /* MyMemoApp-iOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7439D5AF2274823700B8741C /* MyMemoApp-iOS.xcdatamodel */,
+			);
+			currentVersion = 7439D5AF2274823700B8741C /* MyMemoApp-iOS.xcdatamodel */;
+			path = "MyMemoApp-iOS.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74C0408A2270960F0051E8B2 /* Project object */;
 }
