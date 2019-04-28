@@ -9,10 +9,48 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Memos-->
+        <scene sceneID="S5B-hU-bKk">
+            <objects>
+                <tableViewController id="6rb-XU-TdG" customClass="MemoTableTableViewController" customModule="MyMemoApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gOy-yK-Yj4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemosCell" id="brL-nV-kGV">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brL-nV-kGV" id="4zo-s6-fm3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="9pv-A4-QxB" kind="show" identifier="EditMemo" id="8GX-Wl-Q0c"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6rb-XU-TdG" id="RDM-tQ-C4m"/>
+                            <outlet property="delegate" destination="6rb-XU-TdG" id="PMF-ND-iLG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Memos" id="jur-U0-fnl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zaO-2N-K34">
+                            <connections>
+                                <segue destination="9pv-A4-QxB" kind="show" identifier="AddMemo" id="GrI-9s-aNJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbQ-x4-mqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="-1195"/>
+        </scene>
         <!--Memo-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Memo" id="9pv-A4-QxB" customClass="MemoViewController" customModule="MyMemoApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoController" title="Memo" id="9pv-A4-QxB" customClass="MemoViewController" customModule="MyMemoApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zBs-g9-IMB"/>
                         <viewControllerLayoutGuide type="bottom" id="SC1-1Z-JQE"/>
@@ -288,7 +326,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="bra-yb-pTf"/>
+                        <segue destination="6rb-XU-TdG" kind="relationship" relationship="rootViewController" id="1D6-mK-l5Z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25f-xm-5Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,4 +337,7 @@
     <resources>
         <image name="sample-834-bolt" width="26" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8GX-Wl-Q0c"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -26,8 +26,17 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if currentMemo != nil {
+            txtMemo.text = currentMemo!.memoText
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            if currentMemo!.memoDate != nil {
+                lblDate.text = formatter.string(from: currentMemo!.memoDate as! Date)
+            }
+        }
+        //Do any additional setup after loading the view.
         changeEditMode(self)
         let textField: [UITextField] = [txtMemo]
         
