@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class MemoTableTableViewController: UITableViewController {
-    let memos = ["tom", "john", "sam", "mike"]
-    var contacts:[NSManagedObject] = []
+    //let memos = ["tom", "john", "sam", "mike"]
+    var memos:[NSManagedObject] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MemoTableTableViewController: UITableViewController {
         request.sortDescriptors = sortDescriptorArray
         
         do {
-            contacts = try context.fetch(request)
+            memos = try context.fetch(request)
         }
         catch let error as NSError {
             print("\(error) \(error.userInfo)")
@@ -68,8 +68,8 @@ class MemoTableTableViewController: UITableViewController {
         
         // Configure the cell...
         let memo = memos[indexPath.row] as? Memo
-        cell.textLabel?.text = memo?.memoText
-        cell.detailTextLabel?.text = memo?.memoDate
+        cell.textLabel?.text = memo?.memoName
+        cell.detailTextLabel?.text = memo?.memoText
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
         return cell
     }

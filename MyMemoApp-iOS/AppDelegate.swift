@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UserDefaults.standard
         
         if settings.string(forKey: Constants.kSortField) == nil {
-            settings.set("Priority", forKey: Constants.kSortField)
-        }
-        else {
-            settings.set("Date", forKey:Constants.kSortField)
+            settings.set("Date", forKey: Constants.kSortField)
         }
         if settings.string(forKey: Constants.kSortDirectionAscending) == nil {
             settings.set(true, forKey: Constants.kSortDirectionAscending)

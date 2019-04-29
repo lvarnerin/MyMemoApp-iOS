@@ -9,18 +9,19 @@
 import UIKit
 import CoreData
 
-class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
+class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate{
 
     var currentMemo: Memo?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    let priorityItems: Array<String> = ["High", "Medium", "Low"]
+    
+    @IBOutlet weak var pckPriority: UIPickerView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var changeEditMode: UISegmentedControl!
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
+    @IBOutlet weak var txtMemoName: UITextField!
     @IBOutlet weak var txtMemo: UITextField!
-    @IBOutlet weak var swHighPriority: UISwitch!
-    @IBOutlet weak var swMediumPriority: UISwitch!
-    @IBOutlet weak var swLowPriority: UISwitch!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     
@@ -28,8 +29,8 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
         super.viewDidLoad()
         
         if currentMemo != nil {
+            txtMemoName.text = currentMemo!.memoName
             txtMemo.text = currentMemo!.memoText
-            
             let formatter = DateFormatter()
             formatter.dateStyle = .short
             if currentMemo!.memoDate != nil {
@@ -38,7 +39,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
         }
         //Do any additional setup after loading the view.
         changeEditMode(self)
-        let textField: [UITextField] = [txtMemo]
+        let textField: [UITextField] = [txtMemo, txtMemoName]
         
         for textfield in textField {
             textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
@@ -52,7 +53,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     @objc func saveMemo() {
         if currentMemo == nil {
             let context = appDelegate.persistentContainer.viewContext
-            currentMemo = txtMemo(context: context)
+            currentMemo = Memo(context: context)
         }
         appDelegate.saveContext()
         sgmtEditMode.selectedSegmentIndex = 0
@@ -64,7 +65,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     }
     
     @IBAction func changeEditMode(_ sender: Any) {
-        let textFields: [UITextField] = [txtMemo]
+        let textFields: [UITextField] = [txtMemo, txtMemoName]
         if sgmtEditMode.selectedSegmentIndex == 0 {
             for textField in textFields {
                 textField.isEnabled = false
@@ -108,7 +109,6 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
             selector: #selector(self.keyboardWillHide(notification:)),
             name: UIResponder.keyboardDidShowNotification, object: nil)
     }
-    
     func unregisterKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self)
     }
@@ -139,6 +139,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
             dateController.delegate = self
         }
     }
+    // MARK: UIPickerViewDelegate Methods
     
 
 }
