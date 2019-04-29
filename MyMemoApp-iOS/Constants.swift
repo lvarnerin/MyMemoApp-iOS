@@ -8,6 +8,7 @@
 
 import Foundation
 struct Constants {
+    static let kpickPriority = "pickPriority"
     static let kSortField = "sortField"
     static let kSortDirectionAscending = "sortDirectionAscending"
 }

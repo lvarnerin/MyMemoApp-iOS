@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let settings = UserDefaults.standard
-        
+        if settings.string(forKey: Constants.kpickPriority) == nil {
+            settings.set("Priority", forKey: Constants.kpickPriority)
+        }
         if settings.string(forKey: Constants.kSortField) == nil {
             settings.set("Date", forKey: Constants.kSortField)
         }
@@ -25,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings.set(true, forKey: Constants.kSortDirectionAscending)
         }
         settings.synchronize()
+        NSLog("Pick Priority: %@", settings.string(forKey: Constants.kpickPriority)!)
         NSLog("Sort field: %@", settings.string(forKey: Constants.kSortField)!)
         NSLog("Sort direction: \(settings.bool(forKey: Constants.kSortDirectionAscending))")
         

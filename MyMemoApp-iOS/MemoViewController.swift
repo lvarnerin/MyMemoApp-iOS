@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate{
+class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
 
     var currentMemo: Memo?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -141,5 +141,42 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     }
     // MARK: UIPickerViewDelegate Methods
     
+    // Returns the number of 'columns' to display.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // Returns the # of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return priorityItems.count
+    }
+    
+    //Sets the value that is shown for each row in the picker
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
+        -> String? {
+            return priorityItems[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
+        print("Chosen item: \(priorityItems[row])")
+        let pickPriority = priorityItems[row]
+        let settings = UserDefaults.standard
+        settings.set(pickPriority, forKey: Constants.kpickPriority)
+        settings.synchronize()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        //set the UI based on values in UserDefaults
+        
+        let settings = UserDefaults.standard
+        let pickPriority = settings.string(forKey: Constants.kpickPriority)
+        var i = 0
+        for priority in priorityItems {
+            if(priority == pickPriority){
+            priorityItems.selectRow(i, inComponent: 0, animated: false)
+            }
+            i += 1
+        }
+        priorityItems.reloadComponent(0)
+        
+    }
 
 }
