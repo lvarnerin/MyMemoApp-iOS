@@ -171,11 +171,11 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
         var i = 0
         for priority in priorityItems {
             if(priority == pickPriority){
-            priorityItems.selectRow(i, inComponent: 0, animated: false)
+            pckPriority.selectRow(i, inComponent: 0, animated: false)
             }
             i += 1
         }
-        priorityItems.reloadComponent(0)
+        pckPriority.reloadComponent(0)
         
     }
 
