@@ -27,7 +27,6 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if currentMemo != nil {
             txtMemoName.text = currentMemo!.memoName
             txtMemo.text = currentMemo!.memoText
@@ -38,7 +37,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
             }
         }
         //Do any additional setup after loading the view.
-        changeEditMode(self)
+        self.changeEditMode(self)
         let textField: [UITextField] = [txtMemo, txtMemoName]
         
         for textfield in textField {
