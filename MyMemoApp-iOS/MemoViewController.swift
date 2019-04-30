@@ -14,7 +14,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     var currentMemo: Memo?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let priorityItems: Array<String> = ["High", "Medium", "Low"]
+    let priorityItems: Array<String> = ["1", "2", "3"]
     
     @IBOutlet weak var pckPriority: UIPickerView!
     @IBOutlet weak var scrollView: UIScrollView!
