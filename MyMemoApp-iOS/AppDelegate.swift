@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let settings = UserDefaults.standard
         if settings.string(forKey: Constants.kpickPriority) == nil {
-            settings.set("Priority", forKey: Constants.kpickPriority)
+            settings.set("1", forKey: Constants.kpickPriority)
         }
         if settings.string(forKey: Constants.kSortField) == nil {
             settings.set("Date", forKey: Constants.kSortField)

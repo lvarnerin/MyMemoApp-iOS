@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    let sortOrderItems: Array<String> = ["Date"]
+    let sortOrderItems: Array<String> = ["Date", "Priority"]
     
     @IBOutlet weak var pckSortField: UIPickerView!
     @IBOutlet weak var swAscending: UISwitch!
