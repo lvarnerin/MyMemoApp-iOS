@@ -96,7 +96,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate, DateControllerD
     }
     
     override func viewWillDisappear(_ animated: Bool){
-        super.viewWillDisappear(<#T##animated: Bool##Bool#>)
+        super.viewWillDisappear(animated)
         self.unregisterKeyboardNotifications()
     }
     func registerKeyboardNotifications() {

@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zN0-tm-Dv5">
-                                <rect key="frame" x="162.5" y="88" width="89" height="726"/>
+                                <rect key="frame" x="162.5" y="88" width="89" height="24"/>
                                 <segments>
                                     <segment title="View"/>
                                     <segment title="Edit"/>
@@ -184,7 +184,7 @@
                             <constraint firstItem="zN0-tm-Dv5" firstAttribute="top" secondItem="zBs-g9-IMB" secondAttribute="bottom" id="UZR-UY-wHl"/>
                             <constraint firstAttribute="trailing" secondItem="8uZ-o5-ZDH" secondAttribute="trailing" id="b5R-x0-7E6"/>
                             <constraint firstItem="SC1-1Z-JQE" firstAttribute="top" secondItem="8uZ-o5-ZDH" secondAttribute="bottom" id="i1J-4T-j3M"/>
-                            <constraint firstItem="8uZ-o5-ZDH" firstAttribute="bottom" secondItem="zN0-tm-Dv5" secondAttribute="bottom" id="muB-Np-gyq"/>
+                            <constraint firstItem="8uZ-o5-ZDH" firstAttribute="top" secondItem="zN0-tm-Dv5" secondAttribute="bottom" id="muB-Np-gyq"/>
                             <constraint firstItem="8uZ-o5-ZDH" firstAttribute="top" secondItem="zBs-g9-IMB" secondAttribute="bottom" constant="23" id="xrE-S6-Hco"/>
                         </constraints>
                     </view>
